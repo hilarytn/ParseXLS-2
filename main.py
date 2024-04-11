@@ -687,11 +687,41 @@ def download_master():
     else:
         return "Master file not found."
 
-@app.route('/master') #/f1_s1 /f1_s2 /f2_s1 /f2_s2
+@app.route('/f1_s1 /master') #/f1_s1 /f1_s2 /f2_s1 /f2_s2
 @login_required
-def master():
+def master_f1_s1():
     master_data = []
     master_file_path, _ = get_user_file_paths_facility1_s1(current_user.username)
+    if os.path.exists(master_file_path):
+        master_df = pd.read_excel(master_file_path)
+        master_data = master_df.to_dict('records')
+    return render_template('master.html', master_data=master_data)
+
+@app.route('/f1_s2/master') #/f1_s1 /f1_s2 /f2_s1 /f2_s2
+@login_required
+def master_f1_s2():
+    master_data = []
+    master_file_path, _ = get_user_file_paths_facility1_s2(current_user.username)
+    if os.path.exists(master_file_path):
+        master_df = pd.read_excel(master_file_path)
+        master_data = master_df.to_dict('records')
+    return render_template('master.html', master_data=master_data)
+
+@app.route('/f2_s1/master') #/f1_s1 /f1_s2 /f2_s1 /f2_s2
+@login_required
+def master_f2_s1():
+    master_data = []
+    master_file_path, _ = get_user_file_paths_facility2_s1(current_user.username)
+    if os.path.exists(master_file_path):
+        master_df = pd.read_excel(master_file_path)
+        master_data = master_df.to_dict('records')
+    return render_template('master.html', master_data=master_data)
+
+@app.route('/f2_s2/master') #/f1_s1 /f1_s2 /f2_s1 /f2_s2
+@login_required
+def master_f2_s2():
+    master_data = []
+    master_file_path, _ = get_user_file_paths_facility2_s2(current_user.username)
     if os.path.exists(master_file_path):
         master_df = pd.read_excel(master_file_path)
         master_data = master_df.to_dict('records')

@@ -51,7 +51,7 @@
                             <div class="download-view-line-container">
                                 <div class="download-view-container">
                                     <a href="/download_master" class="download-btn-custom">Download Master File</a>
-                                    <a href="/master" class="view-btn-custom">View Master File</a>
+                                    <a href="/f1_s1/master" class="view-btn-custom">View Master File</a>
                                 </div>
                                 <ul class="list-unstyled line-list">
                                     {% for line in linesf1s1 %}
@@ -99,11 +99,11 @@
                             <div class="download-view-line-container">
                                 <div class="download-view-container">
                                     <a href="/f1_s2/download_master" class="download-btn-custom">Download Master File</a>
-                                    <a href="/master" class="view-btn-custom">View Master File</a>
+                                    <a href="/f1_s2/master" class="view-btn-custom">View Master File</a>
                                 </div>
                                 <ul class="list-unstyled line-list">
                                     {% for line in linesf1s2 %}
-                                        <li><a href="/f1_s1/line/{{ line }}" class="line-btn-custom">View Line {{ line }}</a></li>
+                                        <li><a href="/f1_s2/line/{{ line }}" class="line-btn-custom">View Line {{ line }}</a></li>
                                     {% endfor %}
                                 </ul>
                             </div>
@@ -125,7 +125,7 @@
                                     <td>{{ file_data.filename }}</td>
                                     <td>{{ file_data.upload_date }}</td>
                                     <td>
-                                        <form action="/delete/{{ file_data.my_uuid }}" method="post">
+                                        <form action="/f1_s2/delete/{{ file_data.my_uuid }}" method="post">
                                             <input type="hidden" name="filename" value="{{ file_data.filename }}">
                                             <button type="submit">Delete</button>
                                         </form>
@@ -159,6 +159,21 @@
                             <input id="file-upload-facility2-source1" class="form-control" type="file" name="files[]" multiple accept=".xls,.xlsx" required>
                             <button type="submit" class="btn btn-primary mt-2 file-upload-btn">Upload</button>
                         </form>
+                        {% if master_file_link_facility2_source1 %}
+                        <div class="download-master-container">
+                            <div class="download-view-line-container">
+                                <div class="download-view-container">
+                                    <a href="/download_master" class="download-btn-custom">Download Master File</a>
+                                    <a href="/f2_s1/master" class="view-btn-custom">View Master File</a>
+                                </div>
+                                <ul class="list-unstyled line-list">
+                                    {% for line in linesf1s1 %}
+                                        <li><a href="/f2_s1/line/{{ line }}" class="line-btn-custom">View Line {{ line }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
                         <!-- Upload history table for Facility 2 - Source 1 -->
                         <h4>Food Service Plant - Censor Upload History</h4>
                         <table class="table">
@@ -192,6 +207,21 @@
                             <input id="file-upload-facility2-source2" class="form-control" type="file" name="files[]" multiple accept=".xls,.xlsx" required>
                             <button type="submit" class="btn btn-primary mt-2 file-upload-btn">Upload</button>
                         </form>
+                        {% if master_file_link_facility2_source2 %}
+                        <div class="download-master-container">
+                            <div class="download-view-line-container">
+                                <div class="download-view-container">
+                                    <a href="/download_master" class="download-btn-custom">Download Master File</a>
+                                    <a href="/f2_s2/master" class="view-btn-custom">View Master File</a>
+                                </div>
+                                <ul class="list-unstyled line-list">
+                                    {% for line in linesf1s1 %}
+                                        <li><a href="/f2_s2/line/{{ line }}" class="line-btn-custom">View Line {{ line }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
                         <!-- Upload history table for Facility 2 - Source 2 -->
                         <h4>Food Service Plant - Control Point Deduction Upload History</h4>
                         <table class="table">
