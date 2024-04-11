@@ -1,0 +1,97 @@
+.container {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+.file-upload-btn {
+    background-color: #333;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.file-upload-btn:hover {
+    background-color: #555;
+}
+
+/* Custom styles for the tab links */
+.nav-link {
+    background-color: white;
+    color: #fff !important;
+    border-radius: 0;
+    margin-right: 5px;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+.nav-link.active {
+    background-color: white !important;
+    color: #000 !important;
+}
+.nav-link:not(.active) {
+    background-color: #333 !important; /* Background color for inactive tabs */
+}
+
+.nav-link.active:hover {
+    background-color: #0800009d !important; /* Background color for inactive tabs */
+    color: #fff !important;
+
+}
+
+.nav-link:not(.active):hover {
+    background-color: #000000 !important; /* Background color for inactive tabs */
+    color: #fff !important;
+}
+.nav-link:hover {
+    background-color: #383838 !important;
+    color: #000 !important;
+}
+
+.download-master-container {
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    display: flex;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.download-view-line-container {
+    display: flex;
+}
+
+.download-view-container {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.download-btn-custom,
+.view-btn-custom,
+.line-btn-custom {
+    background-color: #333;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.download-btn-custom:hover,
+.view-btn-custom:hover,
+.line-btn-custom:hover {
+    background-color: #555;
+}
+
+.line-list {
+    flex-wrap: wrap;
+}
+
+.line-list li {
+    display: inline-block;
+    margin-right: 10px; /* Adjust spacing between list items */
+}
