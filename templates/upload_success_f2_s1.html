@@ -52,11 +52,11 @@
         <p class="mb-4">{{ message }}</p>
         <a href="{{ url_for('index') }}" class="custom-btn">Go Back</a>
         <a href="/download_master" class="custom-btn">Download Master File</a>
-        <a href="/f2_s2/master" class="custom-btn">View Master File</a>
+        <a href="/f2_s1/master" class="custom-btn">View Master File</a>
         <h2 class="mt-4">View Line Data</h2>
         <ul>
             {% for line in lines %}
-                <li><a href="/f1_s1/line/{{ line }}" class="custom-btn">View Line {{ line }}</a></li>
+                <li><a href="/f2_s1/line/{{ line }}" class="custom-btn">View Line {{ line }}</a></li>
             {% endfor %}
         </ul>
     </div>

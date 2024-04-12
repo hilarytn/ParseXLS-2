@@ -73,7 +73,7 @@ def update_master_facility1_s1(data, filename, line_number, username):
         master_df['uuid'] = file_uuid
 
     # Calculate downtime
-    master_df['downtime'] = master_df['nd'] - master_df['st']
+    master_df['downtime'] = (master_df['nd'] - master_df['st']) * 86400
 
     master_df.to_excel(master_file_path, index=False)
 
@@ -114,7 +114,7 @@ def update_master_facility1_s2(data, filename, line_number, username):
         master_df['uuid'] = file_uuid
 
     # Calculate downtime
-    master_df['downtime'] = master_df['nd'] - master_df['st'] 
+    master_df['downtime'] = (master_df['nd'] - master_df['st']) * 86400 
 
     master_df.to_excel(master_file_path, index=False)
 
@@ -155,7 +155,7 @@ def update_master_facility2_s1(data, filename, line_number, username):
         master_df['uuid'] = file_uuid
 
     # Calculate downtime
-    master_df['downtime'] = master_df['nd'] - master_df['st']
+    master_df['downtime'] = (master_df['nd'] - master_df['st']) * 86400
 
     master_df.to_excel(master_file_path, index=False)
 
@@ -196,7 +196,7 @@ def update_master_facility2_s2(data, filename, line_number, username):
         master_df['uuid'] = file_uuid
 
     # Calculate downtime
-    master_df['downtime'] = master_df['nd'] - master_df['st']
+    master_df['downtime'] = (master_df['nd'] - master_df['st']) * 86400
 
     master_df.to_excel(master_file_path, index=False)
 
