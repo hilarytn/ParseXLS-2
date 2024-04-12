@@ -773,7 +773,7 @@ def line_f2_s1(line_number):
         line_data = line_df.to_dict('records')
     else:
         return "Data for this line doesn't exist"
-    return render_template('line.html', line_number=line_number, line_data=line_data, line_desc="Food Service Plant - Censor Deduction")
+    return render_template('line.html', line_number=line_number, line_data=line_data, line_desc="Food Service Plant - Censor Deduction", line_name="f2_s1")
 
 @app.route('/f2_s2/line/<int:line_number>')
 @login_required
@@ -789,7 +789,7 @@ def line_f2_s2(line_number):
         line_data = line_df.to_dict('records')
     else:
         return "Data for this line doesn't exist"
-    return render_template('line.html', line_number=line_number, line_data=line_data, line_desc="Food Service Plant - Control Point Deduction")
+    return render_template('line.html', line_number=line_number, line_data=line_data, line_desc="Food Service Plant - Control Point Deduction", line_name="f2_s2")
 
 # Route to handle user registration
 @app.route('/register', methods=['GET', 'POST'])
