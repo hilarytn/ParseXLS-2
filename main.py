@@ -462,17 +462,17 @@ def index():
     if os.path.exists(master_file_path_f1_s1):
         master_file_link_f1s1 = url_for('download_master')
 
-    master_file_path_f1_s2, _ = get_user_file_paths_facility1_s1(current_user.username)
+    master_file_path_f1_s2, _ = get_user_file_paths_facility1_s2(current_user.username)
     if os.path.exists(master_file_path_f1_s2):
-        master_file_link_f1s1 = url_for('download_master')
+        master_file_link_f1s2 = url_for('download_master')
 
-    master_file_path_f2_s1, _ = get_user_file_paths_facility1_s1(current_user.username)
+    master_file_path_f2_s1, _ = get_user_file_paths_facility2_s1(current_user.username)
     if os.path.exists(master_file_path_f2_s1):
-        master_file_link_f1s1 = url_for('download_master')
+        master_file_link_f2s1 = url_for('download_master')
 
-    master_file_path_f2_s2, _ = get_user_file_paths_facility1_s1(current_user.username)
+    master_file_path_f2_s2, _ = get_user_file_paths_facility2_s2(current_user.username)
     if os.path.exists(master_file_path_f2_s2):
-        master_file_link_f1s1 = url_for('download_master')
+        master_file_link_f2s2 = url_for('download_master')
 
     inventory_f1_s1 = []
     facility = 'facility1'
@@ -562,7 +562,7 @@ def upload_f1_s1():
             if os.path.exists(master_file_path):
                 master_file = MASTER_FILE
             lines = get_available_lines_facility1_s1(current_user.username)
-            return render_template('upload_success.html', message=message, master_file_link=master_file, lines=lines)
+            return render_template('upload_success_f1_s1.html', message=message, master_file_link=master_file, lines=lines)
         else:
             return render_template('upload_failure.html')
     except Exception as e:
@@ -598,7 +598,7 @@ def upload_f1_s2():
             if os.path.exists(master_file_path):
                 master_file = MASTER_FILE
             lines = get_available_lines_facility1_s2(current_user.username)
-            return render_template('upload_success.html', message=message, master_file_link=master_file, lines=lines)
+            return render_template('upload_success_f1_s2.html', message=message, master_file_link=master_file, lines=lines)
         else:
             return render_template('upload_failure.html')
     except Exception as e:
@@ -634,7 +634,7 @@ def upload_f2_s1():
             if os.path.exists(master_file_path):
                 master_file = MASTER_FILE
             lines = get_available_lines_facility2_s1(current_user.username)
-            return render_template('upload_success.html', message=message, master_file_link=master_file, lines=lines)
+            return render_template('upload_success_f2_s1.html', message=message, master_file_link=master_file, lines=lines)
         else:
             return render_template('upload_failure.html')
     except Exception as e:
@@ -670,7 +670,7 @@ def upload_f2_s2():
             if os.path.exists(master_file_path):
                 master_file = MASTER_FILE
             lines = get_available_lines_facility2_s2(current_user.username)
-            return render_template('upload_success.html', message=message, master_file_link=master_file, lines=lines)
+            return render_template('upload_success_f2_s2.html', message=message, master_file_link=master_file, lines=lines)
         else:
             return render_template('upload_failure.html')
     except Exception as e:
@@ -687,7 +687,7 @@ def download_master():
     else:
         return "Master file not found."
 
-@app.route('/f1_s1 /master') #/f1_s1 /f1_s2 /f2_s1 /f2_s2
+@app.route('/f1_s1/master') 
 @login_required
 def master_f1_s1():
     master_data = []
@@ -697,7 +697,7 @@ def master_f1_s1():
         master_data = master_df.to_dict('records')
     return render_template('master.html', master_data=master_data)
 
-@app.route('/f1_s2/master') #/f1_s1 /f1_s2 /f2_s1 /f2_s2
+@app.route('/f1_s2/master') 
 @login_required
 def master_f1_s2():
     master_data = []
@@ -707,7 +707,7 @@ def master_f1_s2():
         master_data = master_df.to_dict('records')
     return render_template('master.html', master_data=master_data)
 
-@app.route('/f2_s1/master') #/f1_s1 /f1_s2 /f2_s1 /f2_s2
+@app.route('/f2_s1/master') 
 @login_required
 def master_f2_s1():
     master_data = []
@@ -717,7 +717,7 @@ def master_f2_s1():
         master_data = master_df.to_dict('records')
     return render_template('master.html', master_data=master_data)
 
-@app.route('/f2_s2/master') #/f1_s1 /f1_s2 /f2_s1 /f2_s2
+@app.route('/f2_s2/master') 
 @login_required
 def master_f2_s2():
     master_data = []
@@ -741,7 +741,7 @@ def line_f1_s1(line_number):
         line_data = line_df.to_dict('records')
     else:
         return "Data for this line doesn't exist"
-    return render_template('line.html', line_number=line_number, line_data=line_data, line_desc="Daily Plant - Censor Deduction")
+    return render_template('line.html', line_number=line_number, line_data=line_data, line_desc="Daily Plant - Censor Deduction", line_name="f1_s1")
 
 @app.route('/f1_s2/line/<int:line_number>')
 @login_required
