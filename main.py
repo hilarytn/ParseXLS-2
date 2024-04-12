@@ -354,7 +354,7 @@ def delete_file_data_facility1_s1(uuid):
                 if uuid not in line:
                     f.write(line)
 def delete_file_data_facility1_s2(uuid):
-    master_file_path, inventory_file_path = get_user_file_paths_facility1_s1(current_user.username)
+    master_file_path, inventory_file_path = get_user_file_paths_facility1_s2(current_user.username)
 
     # Delete data from master file
     if os.path.exists(master_file_path):
@@ -386,7 +386,7 @@ def delete_file_data_facility1_s2(uuid):
                 if uuid not in line:
                     f.write(line)
 def delete_file_data_facility2_s1(uuid):
-    master_file_path, inventory_file_path = get_user_file_paths_facility1_s1(current_user.username)
+    master_file_path, inventory_file_path = get_user_file_paths_facility2_s1(current_user.username)
 
     # Delete data from master file
     if os.path.exists(master_file_path):
@@ -418,7 +418,7 @@ def delete_file_data_facility2_s1(uuid):
                 if uuid not in line:
                     f.write(line)
 def delete_file_data_facility2_s2(uuid):
-    master_file_path, inventory_file_path = get_user_file_paths_facility1_s1(current_user.username)
+    master_file_path, inventory_file_path = get_user_file_paths_facility2_s2(current_user.username)
 
     # Delete data from master file
     if os.path.exists(master_file_path):
