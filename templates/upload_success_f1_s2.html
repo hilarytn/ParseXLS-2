@@ -20,7 +20,37 @@
             margin-top: 20vh; /* Adjust vertical position */
         }
         h1 {
-            color: #4caf50;
+            color: #333;
+            position: relative;
+        }
+        .tick-container {
+            background-color: #333;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 50%;
+            margin-bottom: 20px; /* Add margin to separate from the text */
+        }
+        .tick-svg {
+            fill: #fff;
+            stroke: #fff;
+            stroke-width: 2;
+        }
+        .tick {
+            stroke-dasharray: 24px;
+            stroke-dashoffset: 24px;
+            animation: checkmark 0.9s ease-in-out forwards;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes checkmark {
+            0% {
+                stroke-dashoffset: 24px;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
         }
         .custom-btn {
             background-color: #333;
@@ -48,7 +78,12 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-4">Upload Successful! Check the Master File to See Your Updated Sheet</h1>
+        <h1 class="mb-4">Upload Successful!</h1>
+        <div class="tick-container">
+            <svg class="tick-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                <path fill="none" stroke="#fff" stroke-width="2" d="M2 12 L10 20 L22 4"></path>
+            </svg>
+        </div>
         <p class="mb-4">{{ message }}</p>
         <a href="{{ url_for('index') }}" class="custom-btn">Go Back</a>
         <a href="/download_master" class="custom-btn">Download Master File</a>

@@ -6,6 +6,7 @@
     <link rel="icon" href="{{ url_for('static', filename='img/favicon.jpg') }}" type="image/x-icon">
     <title>Upload Success</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +21,36 @@
             margin-top: 20vh; /* Adjust vertical position */
         }
         h1 {
-            color: #4caf50;
+            position: relative;
+        }
+        .tick-container {
+            background-color: #333;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 50%;
+            margin-bottom: 20px; /* Add margin to separate from the text */
+        }
+        .tick-svg {
+            fill: #fff;
+            stroke: #fff;
+            stroke-width: 2;
+        }
+        .tick {
+            stroke-dasharray: 24px;
+            stroke-dashoffset: 24px;
+            animation: checkmark 0.9s ease-in-out forwards;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes checkmark {
+            0% {
+                stroke-dashoffset: 24px;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
         }
         .custom-btn {
             background-color: #333;
@@ -48,8 +78,13 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-4">Upload Successful! Check the Master File to See Your Updated Sheet</h1>
-        <p class="mb-4">{{ message }}</p>
+        <h1 class="mb-4">Upload Successful!</h1>
+        <div class="tick-container">
+            <svg class="tick-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                <path fill="none" stroke="#fff" stroke-width="2" d="M2 12 L10 20 L22 4"></path>
+            </svg>
+        </div>
+        <p class="mb-4">Check the Master File to See Your Updated Sheet</p>
         <a href="{{ url_for('index') }}" class="custom-btn">Go Back</a>
         <a href="/download_master" class="custom-btn">Download Master File</a>
         <a href="/f1_s1/master" class="custom-btn">View Master File</a>
